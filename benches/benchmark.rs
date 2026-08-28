@@ -3,7 +3,8 @@
 //! Uses Criterion.rs for statistically rigorous performance measurement.
 //! Compares 5 concurrency strategies under heavy multi-threaded contention.
 
-use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criterion};
+use std::hint::black_box;
+use criterion::{criterion_group, criterion_main, BenchmarkId, Criterion};
 use std::sync::{
     atomic::{AtomicBool, AtomicU64, Ordering},
     Arc, Mutex, RwLock,
@@ -39,8 +40,8 @@ fn bench_mutex(threads: usize) -> u64 {
         h.join().unwrap();
     }
 
- let x = *counter.lock().unwrap();
- x
+    let x = *counter.lock().unwrap();
+    x
 }
 
 /// Variant 2: RwLock (write-heavy)
@@ -61,8 +62,8 @@ fn bench_rwlock(threads: usize) -> u64 {
         h.join().unwrap();
     }
 
-   let x = *counter.read().unwrap();
-   x
+    let x = *counter.read().unwrap();
+    x
 }
 
 /// Variant 3: Spinlock with AtomicBool
@@ -176,8 +177,6 @@ fn bench_concurrency(c: &mut Criterion) {
         .warm_up_time(std::time::Duration::from_secs(3));
 
     for &threads in THREAD_COUNTS.iter() {
-        let total_ops = threads as u64 * OPERATIONS_PER_THREAD;
-
         // 1. Mutex
         group.bench_with_input(
             BenchmarkId::new("Mutex", threads),
