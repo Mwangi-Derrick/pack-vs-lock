@@ -11,6 +11,7 @@ keywords = ["concurrency", "benchmark", "lock-free", "atomic", "cas"]
 categories = ["concurrency", "performance"]
 
 [dependencies]
+critcmp = "0.1.8"
 criterion = "0.8.2"
 
 [profile.release]
