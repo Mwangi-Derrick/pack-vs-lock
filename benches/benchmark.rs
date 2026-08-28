@@ -39,7 +39,8 @@ fn bench_mutex(threads: usize) -> u64 {
         h.join().unwrap();
     }
 
-    *counter.lock().unwrap()
+ let x = *counter.lock().unwrap();
+ x
 }
 
 /// Variant 2: RwLock (write-heavy)
@@ -60,7 +61,8 @@ fn bench_rwlock(threads: usize) -> u64 {
         h.join().unwrap();
     }
 
-    *counter.read().unwrap()
+   let x = *counter.read().unwrap();
+   x
 }
 
 /// Variant 3: Spinlock with AtomicBool
@@ -90,7 +92,8 @@ fn bench_spinlock(threads: usize) -> u64 {
         h.join().unwrap();
     }
 
-    *counter.lock().unwrap()
+    let x = *counter.lock().unwrap();
+    x
 }
 
 /// Variant 4: Lock-Free Atomic (fetch_add)
