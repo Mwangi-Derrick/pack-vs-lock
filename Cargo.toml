@@ -12,9 +12,13 @@ categories = ["concurrency", "performance"]
 
 [dependencies]
 critcmp = "0.1.8"
-criterion = "0.8.2"
+criterion = { version = "0.8.2", features = ["html_reports"] }
 
 [profile.release]
 lto = true
 codegen-units = 1
 panic = "abort"
+
+[[bench]]
+name = "benchmark"
+harness = false 
