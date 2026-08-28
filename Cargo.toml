@@ -1,0 +1,18 @@
+[package]
+name = "pack-vs-lock"
+version = "1.0.0"
+edition = "2021"
+authors = ["Your Name <mwangiderrick640@gmail.com>"]
+description = "Mutex vs RwLock vs Spinlock vs Lock-Free vs Bit-Packed CAS Showdown"
+license = "MIT"
+repository = "https://github.com/Mwangi-Derrick/pack-vs-lock"
+readme = "README.md"
+keywords = ["concurrency", "benchmark", "lock-free", "atomic", "cas"]
+categories = ["concurrency", "performance"]
+
+[dependencies]
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
