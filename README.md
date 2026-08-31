@@ -231,7 +231,7 @@ This creates a compact atomic state machine that can be updated using a single C
 
 ### Prerequisites
 
-- Rust 1.70+
+- Rust 1.97.1+
 - Cargo
 
 Install Rust with:
