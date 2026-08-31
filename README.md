@@ -4,7 +4,7 @@
 
 A production-grade benchmarking suite comparing traditional locking, spinning, lock-free atomics, and bit-packed CAS under concurrent workloads.
 
-![Rust](https://img.shields.io/badge/rust-1.70%2B-orange.svg)
+![Rust](https://img.shields.io/badge/rust-1.97.1%2B-orange.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Benchmarked with Criterion](https://img.shields.io/badge/benchmarked%20with-criterion-5e5e5e.svg)
 
